@@ -36,6 +36,20 @@ public class DateUtils {
 	public static final String DEFAULT_TIME_HOUR = "HH:mm";
 
 	/**
+	 * @Author 郭兵
+	 * @Description : 默认返回格式 yyyy-MM-dd HH:mm:ss
+	 * @Date  2020/11/13 14:59
+	 **/
+	public static String format(Date date, String format) {
+		if (date == null) {
+			return "";
+		} else {
+			SimpleDateFormat df = new SimpleDateFormat((String) StringUtils.defaultIfEmpty(format, HOUR_PATTERN));
+			return df.format(date);
+		}
+	}
+	
+	/**
 	 * @Description:两个时间相减,获得相差天数，小时，分钟
 	 * @author AnYanSen
 	 * @param endTime   结束时间
